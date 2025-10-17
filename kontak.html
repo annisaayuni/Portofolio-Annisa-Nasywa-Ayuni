@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portofolio — Annisa Nasywa Ayuni</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --rose-pink: #d97ca4;
+      --soft-pink: #f3b9ce;
+      --soft-blue: #8ab6f9;
+      --deep-blue: #294c8f;
+      --text-dark: #1b1e2b;
+      --text-muted: #50556b;
+      --bg: linear-gradient(to bottom right, #f7ecf4, #e4f0ff);
+      --white: #ffffff;
+      --wa-green: #25D366;
+    }
+
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      padding: 18px 60px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: slideDown 0.8s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--rose-pink), var(--deep-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav a {
+      color: var(--text-dark);
+      text-decoration: none;
+      margin: 0 16px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--rose-pink), var(--deep-blue));
+      transition: 0.3s;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    /* KONTAK SECTION */
+    .contact {
+      padding: 100px 8%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .contact h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, var(--rose-pink), var(--deep-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .contact p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 600px;
+      font-size: 1.05rem;
+      margin-bottom: 60px;
+    }
+
+    /* CARD KONTAK */
+    .contact-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 40px 60px;
+      max-width: 550px;
+      text-align: left;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .info-list li {
+      margin-bottom: 18px;
+      font-size: 1rem;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+    }
+
+    .info-list li i {
+      color: var(--deep-blue);
+      margin-right: 14px;
+      font-size: 1.2rem;
+      background: rgba(255,255,255,0.8);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    /* SOSIAL MEDIA */
+    .socials {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .socials a {
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(135deg, var(--rose-pink), var(--deep-blue));
+      margin: 0 8px;
+      padding: 14px;
+      border-radius: 50%;
+      font-size: 1.25rem;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 15px rgba(217, 124, 164, 0.3);
+      transition: all 0.35s ease;
+    }
+
+    .socials a:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 25px rgba(138,182,249,0.45);
+    }
+
+    .socials a.whatsapp {
+      background: var(--wa-green);
+      box-shadow: 0 0 12px rgba(37,211,102,0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 80px;
+    }
+
+    /* ANIMASI */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .contact-card {
+        padding: 30px;
+      }
+      .info-list li {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Portofolio</div>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="home.html">Tentang</a>
+      <a href="resume.html">Riwayat</a>
+      <a href="portofolio.html">Portofolio</a>
+      <a href="kontak.html" class="active">Kontak</a>
+    </nav>
+  </header>
+
+  <section class="contact">
+    <h2>Hubungi Saya</h2>
+    <p>Saya senang berkolaborasi dan terbuka untuk peluang baru. Silakan hubungi saya melalui kontak di bawah ini.</p>
+
+    <div class="contact-card">
+      <ul class="info-list">
+        <li><i class="fa-solid fa-envelope"></i> annisaayuni14@gmail.com</li>
+        <li><i class="fa-solid fa-phone"></i> +62 813 1368 8413</li>
+        <li><i class="fa-solid fa-location-dot"></i> Parungsari, Rawa, Lumbung, Ciamis, Jawa Barat</li>
+      </ul>
+
+      <div class="socials">
+        <a href="https://www.instagram.com/_ansywa?igsh=a3FzM2Zqb2h5Y29h" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://share.google/IhzsbT6gTOjJMHqd1" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/annisa-nasywa-ayuni-43b64038a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://wa.me/6281313688413" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Annisa Nasywa Ayuni
+  </footer>
+</body>
+</html>

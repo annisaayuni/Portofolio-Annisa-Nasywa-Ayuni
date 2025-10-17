@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portofolio — Annisa Nasywa Ayuni</title>
+
+  <!-- Font Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+  :root {
+    --deep-blue: #294c8f;
+    --soft-blue: #8ab6f9;
+    --rose-pink: #d97ca4;
+    --soft-pink: #f3b9ce;
+    --bg: linear-gradient(to bottom right, #e8eafc, #f9e4f2);
+    --text-dark: #1b1e2b;
+    --text-muted: #4f556b;
+    --white: #ffffff;
+  }
+
+  * {
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text-dark);
+  }
+
+  /* HEADER */
+  header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    padding: 18px 60px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideDown 0.8s ease;
+  }
+
+  @keyframes slideDown {
+    from { transform: translateY(-40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--rose-pink), var(--deep-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    margin: 0 16px;
+    font-weight: 500;
+    position: relative;
+  }
+
+  nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--rose-pink), var(--deep-blue));
+    transition: 0.3s;
+  }
+
+  nav a:hover::after,
+  nav a.active::after {
+    width: 100%;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 10%;
+    min-height: 85vh;
+  }
+
+  .hero-content {
+    max-width: 50%;
+    animation: fadeInLeft 1.3s ease;
+  }
+
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-60px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin: 0 0 15px;
+    background: linear-gradient(90deg, var(--rose-pink), var(--deep-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 15px;
+  }
+
+  /* BUTTONS */
+  .btn {
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.25);
+    transition: 0.5s;
+  }
+
+  .btn:hover::before {
+    left: 100%;
+  }
+
+  /* tombol utama */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--deep-blue), var(--soft-blue));
+    color: var(--white);
+    box-shadow: 0 6px 18px rgba(41, 76, 143, 0.4);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--rose-pink), var(--deep-blue));
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(41, 76, 143, 0.5);
+  }
+
+  /* tombol outline */
+  .btn-outline {
+    border: 2px solid var(--deep-blue);
+    color: var(--deep-blue);
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background: linear-gradient(135deg, var(--rose-pink), var(--deep-blue));
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(217, 124, 164, 0.3);
+  }
+
+  /* IMAGE */
+  .hero-image {
+    animation: fadeInRight 1.4s ease;
+  }
+
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(60px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .hero-image img {
+    width: 340px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 3px solid rgba(255,255,255,0.5);
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">Portofolio</div>
+    <nav>
+      <a href="index.html" class="active">Beranda</a>
+      <a href="home.html">Tentang</a>
+      <a href="resume.html">Riwayat</a>
+      <a href="portofolio.html">Portofolio</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Hallo, saya Annisa Nasywa Ayuni</h1>
+      <p>Ciamis / Web Developer</p>
+
+      <div class="buttons">
+        <a href="portofolio.html" class="btn btn-primary">Lihat Portofolio</a>
+        <a href="kontak.html" class="btn btn-outline">Hubungi Saya</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="assets/img/nn.jpeg" alt="Foto Anda">
+    </div>
+  </section>
+</body>
+</html>
