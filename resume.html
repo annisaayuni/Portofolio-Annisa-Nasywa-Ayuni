@@ -4,8 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portofolio — Annisa Nasywa Ayuni</title>
-P
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
  :root {
@@ -29,6 +30,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg);
   color: var(--text-dark);
+  overflow-x: hidden;
 }
 
 /* HEADER */
@@ -60,6 +62,10 @@ header {
   -webkit-text-fill-color: transparent;
 }
 
+nav {
+  display: flex;
+}
+
 nav a {
   color: var(--text-dark);
   text-decoration: none;
@@ -82,6 +88,21 @@ nav a::after {
 nav a:hover::after,
 nav a.active::after {
   width: 100%;
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--deep-blue);
+  margin: 3px 0;
+  transition: 0.3s;
 }
 
 /* SECTION RESUME */
@@ -161,6 +182,28 @@ nav a.active::after {
   font-size: 0.97rem;
 }
 
+/* SERTIFIKAT LINK */
+.certificate-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--deep-blue);
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.certificate-link i {
+  margin-right: 6px;
+  font-size: 0.95rem;
+}
+
+.certificate-link:hover {
+  color: var(--rose-pink);
+  transform: translateX(5px);
+}
+
 /* Efek hover */
 .timeline-item:hover {
   transform: translateY(-5px);
@@ -177,13 +220,187 @@ nav a.active::after {
   from { opacity: 0; transform: translateY(50px); }
   to { opacity: 1; transform: translateY(0); }
 }
-</style>
+
+/* RESPONSIVE - TABLET */
+@media (max-width: 992px) {
+  .resume {
+    padding: 80px 5%;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 35px;
+  }
+  
+  .timeline {
+    margin-left: 20px;
+    padding-left: 20px;
+  }
+  
+  .timeline-item {
+    padding: 20px 22px;
+    margin-bottom: 35px;
+  }
+  
+  .timeline-item::before {
+    left: -32px;
+    top: 24px;
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* RESPONSIVE - MOBILE LARGE */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  nav {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 50px;
+    transition: 0.5s;
+  }
+  
+  nav.active {
+    right: 0;
+  }
+  
+  nav a {
+    margin: 15px 0;
+    font-size: 1.1rem;
+  }
+  
+  .resume {
+    padding: 60px 5%;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .timeline {
+    margin-left: 15px;
+    padding-left: 15px;
+  }
+  
+  .timeline-item {
+    padding: 18px 20px;
+    margin-bottom: 30px;
+  }
+  
+  .timeline-item::before {
+    left: -27px;
+    top: 22px;
+    width: 12px;
+    height: 12px;
+  }
+  
+  .timeline-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .timeline-item h4 {
+    font-size: 0.85rem;
+    padding: 5px 12px;
+  }
+  
+  .timeline-item p {
+    font-size: 0.9rem;
+  }
+  
+  .certificate-link {
+    font-size: 0.85rem;
+  }
+}
+
+/* RESPONSIVE - MOBILE SMALL */
+@media (max-width: 480px) {
+  header {
+    padding: 12px 15px;
+  }
+  
+  .logo {
+    font-size: 1.3rem;
+  }
+  
+  .resume {
+    padding: 40px 5%;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+  
+  .timeline {
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+  
+  .timeline-item {
+    padding: 15px 18px;
+    margin-bottom: 25px;
+  }
+  
+  .timeline-item::before {
+    left: -22px;
+    top: 20px;
+    width: 10px;
+    height: 10px;
+  }
+  
+  .timeline-item h3 {
+    font-size: 1rem;
+  }
+  
+  .timeline-item h4 {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+  
+  .timeline-item p {
+    font-size: 0.85rem;
+  }
+  
+  .certificate-link {
+    font-size: 0.8rem;
+  }
+  
+  .resume-section {
+    margin-bottom: 60px;
+  }
+}
+  </style>
 
 </head>
 <body>
   <header>
     <div class="logo">Portofolio</div>
-    <nav>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="navMenu">
       <a href="index.html">Beranda</a>
       <a href="home.html">Tentang</a>
       <a href="resume.html" class="active">Riwayat</a>
@@ -199,11 +416,7 @@ nav a.active::after {
       <div class="timeline-item">
         <h3>SMKN 1 KAWALI</h3>
         <h4>Rekayasa Perangkat Lunak — 2023 - 2026</h4>
-      </div>
-
-      <div class="timeline-item">
-        <h3>MTSs Nurul Huda Al-Husna</h3>
-        <h4>2020 - 2023</h4>
+        <p>Mempelajari pengembangan perangkat lunak, pemrograman web, basis data, dan desain sistem informasi.</p>
       </div>
     </div>
   </div>
@@ -213,28 +426,74 @@ nav a.active::after {
     <div class="timeline">
       <div class="timeline-item">
         <h3>Praktik Kerja Lapangan - PT.INOVINDO DIGITAL MEDIA</h3>
-        <h4>2025-2026</h4>
+        <h4>Oktober 2025 - Februari 2026</h4>
+        <p>Berpartisipasi dalam pengembangan aplikasi web dan mempelajari praktik industri pengembangan perangkat lunak.</p>
       </div>
 
       <div class="timeline-item">
         <h3>TOEIC Test</h3>
-        <h4>2025</h4>
+        <h4>Agustus 2025</h4>
+        <p>Mengikuti tes kemampuan bahasa Inggris untuk meningkatkan kompetensi komunikasi internasional.</p>
       </div>
 
       <div class="timeline-item">
         <h3>Pelatihan pembuatan Landing Page</h3>
         <h4>2025</h4>
+        <p>Mengikuti pelatihan intensif tentang desain dan pengembangan landing page yang efektif dan menarik.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Anggota himpunan jurusan (sekretaris)</h3>
+        <h4>2024-2025</h4>
+        <p>Bertanggung jawab atas dokumentasi kegiatan, komunikasi internal, dan organisasi acara himpunan.</p>
       </div>
 
       <div class="timeline-item">
         <h3>Pelatihan guru tamu Website</h3>
         <h4>2024</h4>
+        <p>Mengikuti pelatihan dengan profesional industri untuk mempelajari praktik terbaik dalam pengembangan website.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="resume-section">
+    <h2 class="section-title">📜 Sertifikat</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Sertifikat TOEIC</h3>
+        <h4>Agustus 2025</h4>
+        <p>Sertifikat kemampuan bahasa Inggris dengan skor tinggi yang membuktikan kemampuan komunikasi internasional.</p>
+        <a href="https://drive.google.com/file/d/166Y9fBkajpCL0IhTZbZbAfTJvzhzdWrK/view?usp=drive_link" target="_blank" class="certificate-link">
+          <i class="fas fa-external-link-alt"></i> Lihat Sertifikat
+        </a>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Sertifikat Pelatihan Landing Page</h3>
+        <h4>2025</h4>
+        <p>Sertifikat pelatihan intensif tentang desain dan pengembangan landing page yang efektif dan menarik.</p>
+        <a href="https://drive.google.com/file/d/1as6_H6l_XUMAlOCt8zFEKiNN6EPcGWrW/view?usp=drive_link" target="_blank" class="certificate-link">
+          <i class="fas fa-external-link-alt"></i> Lihat Sertifikat
+        </a>
       </div>
     </div>
   </div>
 </section>
 
   <script>
+    // Toggle mobile menu
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('navMenu').classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function() {
+        document.getElementById('navMenu').classList.remove('active');
+      });
+    });
+
+    // Animasi scroll muncul
     const items = document.querySelectorAll('.timeline-item');
     const showOnScroll = () => {
       const triggerBottom = window.innerHeight * 0.85;
@@ -249,4 +508,3 @@ nav a.active::after {
     showOnScroll();
   </script>
 </body>
-</html>
