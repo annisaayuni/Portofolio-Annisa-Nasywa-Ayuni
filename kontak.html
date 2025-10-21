@@ -63,6 +63,10 @@
       -webkit-text-fill-color: transparent;
     }
 
+    nav {
+      display: flex;
+    }
+
     nav a {
       color: var(--text-dark);
       text-decoration: none;
@@ -85,6 +89,21 @@
     nav a:hover::after,
     nav a.active::after {
       width: 100%;
+    }
+
+    /* Mobile menu button */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--deep-blue);
+      margin: 3px 0;
+      transition: 0.3s;
     }
 
     /* KONTAK SECTION */
@@ -206,13 +225,148 @@
       50% { transform: translateY(-8px); }
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
+    /* RESPONSIVE - TABLET */
+    @media (max-width: 992px) {
+      .contact {
+        padding: 80px 5%;
+      }
+      
+      .contact h2 {
+        font-size: 2.4rem;
+      }
+      
+      .contact-card {
+        padding: 35px 50px;
+      }
+    }
+
+    /* RESPONSIVE - MOBILE LARGE */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+      
+      .logo {
+        font-size: 1.5rem;
+      }
+      
+      .menu-toggle {
+        display: flex;
+      }
+      
+      nav {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 50px;
+        transition: 0.5s;
+      }
+      
+      nav.active {
+        right: 0;
+      }
+      
+      nav a {
+        margin: 15px 0;
+        font-size: 1.1rem;
+      }
+      
+      .contact {
+        padding: 60px 5%;
+      }
+      
+      .contact h2 {
+        font-size: 2.2rem;
+      }
+      
+      .contact p {
+        font-size: 1rem;
+        margin-bottom: 40px;
+      }
+      
       .contact-card {
         padding: 30px;
+        max-width: 100%;
       }
+      
       .info-list li {
         font-size: 0.95rem;
+        margin-bottom: 15px;
+      }
+      
+      .info-list li i {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+      }
+      
+      .socials a {
+        padding: 12px;
+        font-size: 1.1rem;
+        margin: 0 6px;
+      }
+    }
+
+    /* RESPONSIVE - MOBILE SMALL */
+    @media (max-width: 480px) {
+      header {
+        padding: 12px 15px;
+      }
+      
+      .logo {
+        font-size: 1.3rem;
+      }
+      
+      .contact {
+        padding: 40px 5%;
+      }
+      
+      .contact h2 {
+        font-size: 1.8rem;
+      }
+      
+      .contact p {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+      }
+      
+      .contact-card {
+        padding: 25px 20px;
+      }
+      
+      .info-list li {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .info-list li i {
+        margin-right: 0;
+        margin-bottom: 8px;
+      }
+      
+      .socials {
+        margin-top: 30px;
+      }
+      
+      .socials a {
+        padding: 10px;
+        font-size: 1rem;
+        margin: 0 5px;
+      }
+      
+      footer {
+        padding: 20px;
+        font-size: 0.8rem;
+        margin-top: 60px;
       }
     }
   </style>
@@ -220,7 +374,12 @@
 <body>
   <header>
     <div class="logo">Portofolio</div>
-    <nav>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="navMenu">
       <a href="index.html">Beranda</a>
       <a href="home.html">Tentang</a>
       <a href="resume.html">Riwayat</a>
@@ -252,5 +411,19 @@
   <footer>
     © 2025 Annisa Nasywa Ayuni
   </footer>
+
+  <script>
+    // Toggle mobile menu
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('navMenu').classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function() {
+        document.getElementById('navMenu').classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
