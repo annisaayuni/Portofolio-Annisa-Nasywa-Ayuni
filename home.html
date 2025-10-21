@@ -3,26 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portofolio — Annisa Nasywa Ayuni</title>
+  <title>Portofolio - Annisa Nasywa Ayuni</title>
 
+  <!-- Font & Icon -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
- :root {
-  --rose-pink: #d97ca4;
-  --soft-pink: #f3b9ce;
-  --soft-blue: #8ab6f9;
+:root {
   --deep-blue: #294c8f;
+  --soft-blue: #a5c8f8;
+  --rose-pink: #d97ca4;
+  --soft-pink: #f5c7d4;
+  --bg: linear-gradient(to bottom right, #fdfaff, #f7edf6);
   --text-dark: #1b1e2b;
-  --text-muted: #50556b;
-  --bg: linear-gradient(to bottom right, #e9ebff, #f9e4f2);
+  --text-muted: #5c5f75;
   --white: #ffffff;
 }
 
+/* RESET */
 * {
   box-sizing: border-box;
   transition: all 0.3s ease;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -30,7 +33,6 @@ body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg);
   color: var(--text-dark);
-  overflow-x: hidden;
 }
 
 /* HEADER */
@@ -45,17 +47,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  animation: slideDown 0.8s ease;
-}
-
-@keyframes slideDown {
-  from { transform: translateY(-40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
 }
 
 .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   font-weight: 700;
   background: linear-gradient(90deg, var(--rose-pink), var(--deep-blue));
   -webkit-background-clip: text;
@@ -72,6 +68,7 @@ nav a {
   margin: 0 16px;
   font-weight: 500;
   position: relative;
+  font-size: 0.95rem;
 }
 
 nav a::after {
@@ -105,148 +102,155 @@ nav a.active::after {
   transition: 0.3s;
 }
 
-/* SECTION RESUME */
-.resume {
+/* BAGIAN TENTANG */
+.about {
   padding: 100px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
 }
 
-.section-title {
+.about img {
+  width: 320px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  border: 3px solid rgba(255,255,255,0.7);
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-content h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
-  margin-bottom: 40px;
-  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
   background: linear-gradient(90deg, var(--rose-pink), var(--deep-blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  letter-spacing: 0.5px;
 }
 
-/* TIMELINE */
-.timeline {
-  position: relative;
-  margin-left: 30px;
-  padding-left: 30px;
-  border-left: 3px solid var(--deep-blue);
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 40px;
-  padding: 22px 25px;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease-out;
-}
-
-.timeline-item.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -42px;
-  top: 28px;
-  width: 16px;
-  height: 16px;
-  background: linear-gradient(135deg, var(--rose-pink), var(--deep-blue));
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(41, 76, 143, 0.4);
-}
-
-.timeline-item h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 0 0 8px;
-  color: var(--deep-blue);
-}
-
-.timeline-item h4 {
-  display: inline-block;
-  background: linear-gradient(90deg, var(--rose-pink), var(--deep-blue));
-  color: #ffffff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  margin: 0 0 12px;
-}
-
-.timeline-item p {
-  margin: 0;
+.about-content p {
   color: var(--text-muted);
-  line-height: 1.6;
-  font-size: 0.97rem;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  font-size: 1.05rem;
+  max-width: 650px;
 }
 
-/* SERTIFIKAT LINK */
-.certificate-link {
-  display: inline-flex;
-  align-items: center;
-  color: var(--deep-blue);
-  text-decoration: none;
-  font-weight: 500;
-  margin-top: 12px;
+/* INFO BOX */
+.info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.info-card {
+  background: rgba(255,255,255,0.85);
+  padding: 18px 22px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  border: 1px solid rgba(255,255,255,0.6);
+}
+
+.info-card span {
+  color: var(--text-muted);
   font-size: 0.9rem;
-  transition: all 0.3s ease;
 }
 
-.certificate-link i {
-  margin-right: 6px;
-  font-size: 0.95rem;
+.info-card h4 {
+  margin: 6px 0 0;
+  font-weight: 600;
+  color: var(--deep-blue);
 }
 
-.certificate-link:hover {
+/* SKILLS */
+.skills {
+  margin-top: 40px;
+}
+
+.skills h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 18px;
+  background: linear-gradient(90deg, var(--rose-pink), var(--deep-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.skill-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.8);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.skill-item i {
+  font-size: 1.3rem;
+  margin-right: 12px;
+  color: var(--deep-blue);
+}
+
+.skill-item span {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+/* SOSIAL MEDIA & FOOTER */
+footer {
+  margin-top: 80px;
+  padding: 40px 10%;
+  background: rgba(255,255,255,0.6);
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.socials {
+  margin-bottom: 18px;
+}
+
+.socials a {
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 1.3rem;
+  color: var(--deep-blue);
+  transition: 0.3s;
+}
+
+.socials a:hover {
   color: var(--rose-pink);
-  transform: translateX(5px);
+  transform: scale(1.15);
 }
 
-/* Efek hover */
-.timeline-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(41, 76, 143, 0.18);
-}
-
-/* Animasi scroll muncul */
-.resume-section {
-  margin-bottom: 80px;
-  animation: fadeUp 1.2s ease;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(50px); }
-  to { opacity: 1; transform: translateY(0); }
+footer p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
 }
 
 /* RESPONSIVE - TABLET */
 @media (max-width: 992px) {
-  .resume {
-    padding: 80px 5%;
+  .about {
+    flex-direction: column;
+    text-align: center;
   }
-  
-  .section-title {
-    font-size: 2.2rem;
-    margin-bottom: 35px;
+  .about img {
+    width: 250px;
+    height: auto;
   }
-  
-  .timeline {
-    margin-left: 20px;
-    padding-left: 20px;
-  }
-  
-  .timeline-item {
-    padding: 20px 22px;
-    margin-bottom: 35px;
-  }
-  
-  .timeline-item::before {
-    left: -32px;
-    top: 24px;
-    width: 14px;
-    height: 14px;
+  .about-content {
+    margin-top: 20px;
   }
 }
 
@@ -288,47 +292,39 @@ nav a.active::after {
     font-size: 1.1rem;
   }
   
-  .resume {
+  .about {
     padding: 60px 5%;
+    gap: 40px;
   }
   
-  .section-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
+  .about img {
+    width: 200px;
+    height: 260px;
   }
   
-  .timeline {
-    margin-left: 15px;
-    padding-left: 15px;
+  .about-content h2 {
+    font-size: 2.2rem;
   }
   
-  .timeline-item {
-    padding: 18px 20px;
-    margin-bottom: 30px;
+  .about-content p {
+    font-size: 1rem;
   }
   
-  .timeline-item::before {
-    left: -27px;
-    top: 22px;
-    width: 12px;
-    height: 12px;
+  .info {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
   
-  .timeline-item h3 {
-    font-size: 1.1rem;
+  .skills h3 {
+    font-size: 1.5rem;
   }
   
-  .timeline-item h4 {
-    font-size: 0.85rem;
-    padding: 5px 12px;
+  .skill-list {
+    grid-template-columns: 1fr;
   }
   
-  .timeline-item p {
-    font-size: 0.9rem;
-  }
-  
-  .certificate-link {
-    font-size: 0.85rem;
+  footer {
+    padding: 30px 5%;
   }
 }
 
@@ -342,57 +338,44 @@ nav a.active::after {
     font-size: 1.3rem;
   }
   
-  .resume {
+  .about {
     padding: 40px 5%;
   }
   
-  .section-title {
+  .about img {
+    width: 180px;
+    height: 240px;
+  }
+  
+  .about-content h2 {
     font-size: 1.8rem;
-    margin-bottom: 25px;
   }
   
-  .timeline {
-    margin-left: 10px;
-    padding-left: 10px;
+  .about-content p {
+    font-size: 0.95rem;
   }
   
-  .timeline-item {
+  .info-card {
     padding: 15px 18px;
-    margin-bottom: 25px;
   }
   
-  .timeline-item::before {
-    left: -22px;
-    top: 20px;
-    width: 10px;
-    height: 10px;
+  .skill-item {
+    padding: 10px 14px;
   }
   
-  .timeline-item h3 {
-    font-size: 1rem;
+  .socials a {
+    margin: 0 8px;
+    font-size: 1.1rem;
   }
   
-  .timeline-item h4 {
+  footer p {
     font-size: 0.8rem;
-    padding: 4px 10px;
-  }
-  
-  .timeline-item p {
-    font-size: 0.85rem;
-  }
-  
-  .certificate-link {
-    font-size: 0.8rem;
-  }
-  
-  .resume-section {
-    margin-bottom: 60px;
   }
 }
   </style>
-
 </head>
 <body>
+
   <header>
     <div class="logo">Portofolio</div>
     <div class="menu-toggle" id="menuToggle">
@@ -402,83 +385,57 @@ nav a.active::after {
     </div>
     <nav id="navMenu">
       <a href="index.html">Beranda</a>
-      <a href="home.html">Tentang</a>
-      <a href="resume.html" class="active">Riwayat</a>
+      <a href="home.html" class="active">Tentang</a>
+      <a href="resume.html">Riwayat</a>
       <a href="portofolio.html">Portofolio</a>
       <a href="kontak.html">Kontak</a>
     </nav>
   </header>
 
-  <section class="resume">
-  <div class="resume-section">
-    <h2 class="section-title">🎓 Pendidikan</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>SMKN 1 KAWALI</h3>
-        <h4>Rekayasa Perangkat Lunak — 2023 - 2026</h4>
-        <p>Mempelajari pengembangan perangkat lunak, pemrograman web, basis data, dan desain sistem informasi.</p>
+  <section class="about">
+    <img src="assets/img/cc.jpeg" alt="Foto Annisa Nasywa Ayuni">
+    <div class="about-content">
+      <h2>Tentang Saya</h2>
+      <p>
+        Halo! Saya <strong>Annisa Nasywa Ayuni</strong>, seorang individu dengan semangat belajar tinggi, disiplin, dan tanggung jawab dalam menyelesaikan setiap tugas. Terbiasa bekerja secara mandiri maupun tim, saya mampu beradaptasi dengan cepat terhadap lingkungan baru dan tantangan pekerjaan. Dengan dasar di bidang teknologi dan komputer, saya siap memberikan hasil kerja optimal sesuai bidang yang saya tekuni.
+      </p>
+
+      <div class="info">
+        <div class="info-card"><span>Nama Lengkap</span><h4>Annisa Nasywa Ayuni</h4></div>
+        <div class="info-card"><span>Tempat, Tanggal Lahir</span><h4>Ciamis, 14 Juni 2007</h4></div>
+        <div class="info-card"><span>Alamat</span><h4>Parungsari, Rawa, Lumbung, Ciamis</h4></div>
+        <div class="info-card"><span>Usia</span><h4>18 Tahun</h4></div>
+        <div class="info-card"><span>Email</span><h4>annisaayuni4@gmail.com</h4></div>
+        <div class="info-card"><span>No. Telepon</span><h4>+62 813-1368-8413</h4></div>
+      </div>
+
+      <div class="skills">
+        <h3>Hard Skill</h3>
+        <div class="skill-list">
+          <div class="skill-item"><i class="fa-solid fa-code"></i><span>HTML (Menengah)</span></div>
+          <div class="skill-item"><i class="fa-solid fa-brush"></i><span>CSS (Menengah)</span></div>
+          <div class="skill-item"><i class="fa-solid fa-laptop-code"></i><span>PHP (Menengah)</span></div>
+          <div class="skill-item"><i class="fa-solid fa-pen-nib"></i><span>Canva (Mahir)</span></div>
+        </div>
+
+        <h3 style="margin-top:35px;">Soft Skill</h3>
+        <div class="skill-list">
+          <div class="skill-item"><i class="fa-solid fa-comments"></i><span>Komunikasi yang Baik</span></div>
+          <div class="skill-item"><i class="fa-solid fa-check-circle"></i><span>Disiplin dan Tanggung Jawab</span></div>
+          <div class="skill-item"><i class="fa-solid fa-users"></i><span>Bekerja dalam Tim maupun Individu</span></div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="resume-section">
-    <h2 class="section-title">💼 Pengalaman</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Praktik Kerja Lapangan - PT.INOVINDO DIGITAL MEDIA</h3>
-        <h4>Oktober 2025 - Februari 2026</h4>
-        <p>Berpartisipasi dalam pengembangan aplikasi web dan mempelajari praktik industri pengembangan perangkat lunak.</p>
-      </div>
-
-      <div class="timeline-item">
-        <h3>TOEIC Test</h3>
-        <h4>Agustus 2025</h4>
-        <p>Mengikuti tes kemampuan bahasa Inggris untuk meningkatkan kompetensi komunikasi internasional.</p>
-      </div>
-
-      <div class="timeline-item">
-        <h3>Pelatihan pembuatan Landing Page</h3>
-        <h4>2025</h4>
-        <p>Mengikuti pelatihan intensif tentang desain dan pengembangan landing page yang efektif dan menarik.</p>
-      </div>
-
-      <div class="timeline-item">
-        <h3>Anggota himpunan jurusan (sekretaris)</h3>
-        <h4>2024-2025</h4>
-        <p>Bertanggung jawab atas dokumentasi kegiatan, komunikasi internal, dan organisasi acara himpunan.</p>
-      </div>
-
-      <div class="timeline-item">
-        <h3>Pelatihan guru tamu Website</h3>
-        <h4>2024</h4>
-        <p>Mengikuti pelatihan dengan profesional industri untuk mempelajari praktik terbaik dalam pengembangan website.</p>
-      </div>
+  <footer>
+    <div class="socials">
+      <a href="https://www.instagram.com/_ansywa?igsh=a3FzM2Zqb2h5Y29h" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/annisa-nasywa-ayuni-43b64038a" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
-  </div>
-
-  <div class="resume-section">
-    <h2 class="section-title">📜 Sertifikat</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Sertifikat TOEIC</h3>
-        <h4>Agustus 2025</h4>
-        <p>Sertifikat kemampuan bahasa Inggris dengan skor tinggi yang membuktikan kemampuan komunikasi internasional.</p>
-        <a href="https://drive.google.com/file/d/166Y9fBkajpCL0IhTZbZbAfTJvzhzdWrK/view?usp=drive_link" target="_blank" class="certificate-link">
-          <i class="fas fa-external-link-alt"></i> Lihat Sertifikat
-        </a>
-      </div>
-
-      <div class="timeline-item">
-        <h3>Sertifikat Pelatihan Landing Page</h3>
-        <h4>2025</h4>
-        <p>Sertifikat pelatihan intensif tentang desain dan pengembangan landing page yang efektif dan menarik.</p>
-        <a href="https://drive.google.com/file/d/1as6_H6l_XUMAlOCt8zFEKiNN6EPcGWrW/view?usp=drive_link" target="_blank" class="certificate-link">
-          <i class="fas fa-external-link-alt"></i> Lihat Sertifikat
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+    <p>© 2025 Annisa Nasywa Ayuni — All Rights Reserved</p>
+  </footer>
 
   <script>
     // Toggle mobile menu
@@ -492,19 +449,6 @@ nav a.active::after {
         document.getElementById('navMenu').classList.remove('active');
       });
     });
-
-    // Animasi scroll muncul
-    const items = document.querySelectorAll('.timeline-item');
-    const showOnScroll = () => {
-      const triggerBottom = window.innerHeight * 0.85;
-      items.forEach(item => {
-        const itemTop = item.getBoundingClientRect().top;
-        if (itemTop < triggerBottom) {
-          item.classList.add('show');
-        }
-      });
-    };
-    window.addEventListener('scroll', showOnScroll);
-    showOnScroll();
   </script>
 </body>
+</html>
