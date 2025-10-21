@@ -7,6 +7,7 @@
 
   <!-- Font Google -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
   :root {
@@ -30,6 +31,7 @@
     font-family: 'Poppins', sans-serif;
     background: var(--bg);
     color: var(--text-dark);
+    overflow-x: hidden;
   }
 
   /* HEADER */
@@ -61,6 +63,10 @@
     -webkit-text-fill-color: transparent;
   }
 
+  nav {
+    display: flex;
+  }
+
   nav a {
     color: var(--text-dark);
     text-decoration: none;
@@ -83,6 +89,21 @@
   nav a:hover::after,
   nav a.active::after {
     width: 100%;
+  }
+
+  /* Mobile menu button */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--deep-blue);
+    margin: 3px 0;
+    transition: 0.3s;
   }
 
   /* HERO SECTION */
@@ -195,12 +216,148 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     border: 3px solid rgba(255,255,255,0.5);
   }
-</style>
+
+  /* RESPONSIVE - TABLET */
+  @media (max-width: 992px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+      padding: 80px 5%;
+    }
+    
+    .hero-content {
+      max-width: 100%;
+      margin-bottom: 40px;
+    }
+    
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+    
+    .buttons {
+      justify-content: center;
+    }
+    
+    .hero-image img {
+      width: 280px;
+      height: 350px;
+    }
+  }
+
+  /* RESPONSIVE - MOBILE LARGE */
+  @media (max-width: 768px) {
+    header {
+      padding: 15px 20px;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+    }
+    
+    .menu-toggle {
+      display: flex;
+    }
+    
+    nav {
+      position: fixed;
+      top: 70px;
+      right: -100%;
+      width: 100%;
+      height: calc(100vh - 70px);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 50px;
+      transition: 0.5s;
+    }
+    
+    nav.active {
+      right: 0;
+    }
+    
+    nav a {
+      margin: 15px 0;
+      font-size: 1.1rem;
+    }
+    
+    .hero {
+      padding: 60px 5%;
+      min-height: 80vh;
+    }
+    
+    .hero-content h1 {
+      font-size: 2.2rem;
+    }
+    
+    .hero-content p {
+      font-size: 1rem;
+    }
+    
+    .buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .btn {
+      width: 200px;
+      text-align: center;
+    }
+    
+    .hero-image img {
+      width: 240px;
+      height: 300px;
+    }
+  }
+
+  /* RESPONSIVE - MOBILE SMALL */
+  @media (max-width: 480px) {
+    header {
+      padding: 12px 15px;
+    }
+    
+    .logo {
+      font-size: 1.3rem;
+    }
+    
+    .hero {
+      padding: 40px 5%;
+      min-height: 75vh;
+    }
+    
+    .hero-content h1 {
+      font-size: 1.8rem;
+    }
+    
+    .hero-content p {
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      width: 180px;
+    }
+    
+    .hero-image img {
+      width: 200px;
+      height: 250px;
+    }
+  }
+  </style>
 </head>
 <body>
   <header>
     <div class="logo">Portofolio</div>
-    <nav>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="navMenu">
       <a href="index.html" class="active">Beranda</a>
       <a href="home.html">Tentang</a>
       <a href="resume.html">Riwayat</a>
@@ -221,8 +378,22 @@
     </div>
 
     <div class="hero-image">
-      <img src="assets/img/nn.jpeg" alt="Foto Anda">
+      <img src="assets/img/nn.jpeg" alt="Foto Annisa Nasywa Ayuni">
     </div>
   </section>
+
+  <script>
+    // Toggle mobile menu
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('navMenu').classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function() {
+        document.getElementById('navMenu').classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
