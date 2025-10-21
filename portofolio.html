@@ -6,6 +6,7 @@
   <title>Portofolio — Annisa Nasywa Ayuni</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
    :root {
@@ -29,6 +30,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg);
   color: var(--text-dark);
+  overflow-x: hidden;
 }
 
 /* HEADER */
@@ -60,6 +62,10 @@ header {
   -webkit-text-fill-color: transparent;
 }
 
+nav {
+  display: flex;
+}
+
 nav a {
   color: var(--text-dark);
   text-decoration: none;
@@ -82,6 +88,21 @@ nav a::after {
 nav a:hover::after,
 nav a.active::after {
   width: 100%;
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--deep-blue);
+  margin: 3px 0;
+  transition: 0.3s;
 }
 
 /* PORTOFOLIO SECTION */
@@ -178,12 +199,151 @@ nav a.active::after {
   transform: translateY(-6px);
   box-shadow: 0 10px 25px rgba(41, 76, 143, 0.15);
 }
+
+/* RESPONSIVE - TABLET */
+@media (max-width: 992px) {
+  .portfolio {
+    padding: 80px 5%;
+  }
+  
+  .portfolio h2 {
+    font-size: 2.2rem;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+  }
+}
+
+/* RESPONSIVE - MOBILE LARGE */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  nav {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 50px;
+    transition: 0.5s;
+  }
+  
+  nav.active {
+    right: 0;
+  }
+  
+  nav a {
+    margin: 15px 0;
+    font-size: 1.1rem;
+  }
+  
+  .portfolio {
+    padding: 60px 5%;
+  }
+  
+  .portfolio h2 {
+    font-size: 2rem;
+  }
+  
+  .portfolio p {
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .card img {
+    height: 180px;
+  }
+  
+  .card-content {
+    padding: 18px 16px;
+  }
+  
+  .card-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .card-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* RESPONSIVE - MOBILE SMALL */
+@media (max-width: 480px) {
+  header {
+    padding: 12px 15px;
+  }
+  
+  .logo {
+    font-size: 1.3rem;
+  }
+  
+  .portfolio {
+    padding: 40px 5%;
+  }
+  
+  .portfolio h2 {
+    font-size: 1.8rem;
+  }
+  
+  .portfolio p {
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+  }
+  
+  .card img {
+    height: 160px;
+  }
+  
+  .card-content {
+    padding: 15px 14px;
+  }
+  
+  .card-content h3 {
+    font-size: 1rem;
+  }
+  
+  .card-content p {
+    font-size: 0.85rem;
+  }
+  
+  .card-content a {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
   </style>
 </head>
 <body>
   <header>
     <div class="logo">Portofolio</div>
-    <nav>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="navMenu">
       <a href="index.html">Beranda</a>
       <a href="home.html">Tentang</a>
       <a href="resume.html">Riwayat</a>
@@ -194,6 +354,7 @@ nav a.active::after {
 
   <section class="portfolio">
     <h2>✨ Portofolio Saya</h2>
+    <p>Berikut adalah beberapa proyek yang telah saya kerjakan untuk menunjukkan kemampuan dan pengalaman saya dalam pengembangan web.</p>
 
     <div class="portfolio-grid">
       <div class="card">
@@ -201,11 +362,70 @@ nav a.active::after {
         <div class="card-content">
           <h3>Website Informasi Desa Panjalu</h3>
           <p>Membangun website informasi interaktif untuk memperkenalkan profil Desa Panjalu, termasuk berita, galeri, dan layanan publik.</p>
+          <a href="#">Lihat Detail</a>
+        </div>
       </div>
-
+      
+      <div class="card">
+        <img src="assets/img/app.png" alt="Proyek 2">
+        <div class="card-content">
+          <h3>Aplikasi Manajemen Inventaris</h3>
+          <p>Aplikasi berbasis web untuk mengelola inventaris barang dengan fitur tracking, laporan, dan notifikasi otomatis.</p>
+          <a href="#">Lihat Detail</a>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="assets/img/design.png" alt="Proyek 3">
+        <div class="card-content">
+          <h3>Desain UI/UX E-Commerce</h3>
+          <p>Desain antarmuka pengguna untuk platform e-commerce dengan fokus pada pengalaman pengguna yang intuitif dan menarik.</p>
+          <a href="#">Lihat Detail</a>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="assets/img/dashboard.png" alt="Proyek 4">
+        <div class="card-content">
+          <h3>Dashboard Analitik</h3>
+          <p>Dashboard interaktif untuk visualisasi data dengan grafik real-time dan filter dinamis untuk analisis bisnis.</p>
+          <a href="#">Lihat Detail</a>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="assets/img/portfolio.png" alt="Proyek 5">
+        <div class="card-content">
+          <h3>Website Portofolio Pribadi</h3>
+          <p>Website portofolio responsif dengan animasi modern dan desain minimalis untuk menampilkan karya dan profil.</p>
+          <a href="#">Lihat Detail</a>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="assets/img/blog.png" alt="Proyek 6">
+        <div class="card-content">
+          <h3>Platform Blog Pendidikan</h3>
+          <p>Platform blog dengan sistem manajemen konten, komentar, dan kategorisasi untuk konten edukasi.</p>
+          <a href="#">Lihat Detail</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <script>
+    // Toggle mobile menu
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('navMenu').classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function() {
+        document.getElementById('navMenu').classList.remove('active');
+      });
+    });
+
     // Animasi muncul saat scroll
     const cards = document.querySelectorAll('.card');
     const showCards = () => {
